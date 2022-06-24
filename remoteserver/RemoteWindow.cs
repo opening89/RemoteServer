@@ -16,7 +16,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace remoteserver
 {
 
-    public partial class Form2 : Form
+    public partial class RemoteWindow : Form
     {
         private readonly int port;
         private TcpClient client;
@@ -25,12 +25,10 @@ namespace remoteserver
 
         private readonly Thread Listening;
         private readonly Thread GetImage;
-        private Form top;
 
-        public Form2(int Port, Form top)
+        public RemoteWindow(int Port)
         {
             port = Port;
-            this.top = top;
             client = new TcpClient();
             Listening = new Thread(StartListening);
             GetImage = new Thread(ReceiveImage);
@@ -72,7 +70,6 @@ namespace remoteserver
         {
             base.OnFormClosing(e);
             StopListening();
-            ((Form1)top).listenEnable();
         }
 
         private void Form2_Load(object sender, EventArgs e)

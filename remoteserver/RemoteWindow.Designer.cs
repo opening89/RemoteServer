@@ -1,7 +1,7 @@
 ﻿
 namespace remoteserver
 {
-    partial class Form2
+    partial class RemoteWindow
     {
         /// <summary>
         /// Required designer variable.
